@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Vijay Yerra</title>
+<meta name="description" content="Writing by Vijay Yerra on AI, software, and adapting to both.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F7F9;
+    --ink: #14161F;
+    --muted: #5B6170;
+    --accent: #3347E0;
+    --line: #DDE0E8;
+    --card: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .site-name { font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+  header nav { display: flex; gap: 20px; }
+  header nav a { font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; color: var(--muted); }
+  header nav a:hover { color: var(--accent); text-decoration: none; }
+  header nav a.active { color: var(--accent); }
+
+  .page-head { padding: 72px 0 40px; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .eyebrow::before { content: "> "; color: var(--muted); }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .page-head p { color: var(--muted); max-width: 520px; }
+
+  .posts { padding-bottom: 80px; }
+  .post-card {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+    color: var(--ink);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .post-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+  .post-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .post-meta .cat { color: var(--accent); }
+  .post-card h2 { font-size: 1.3rem; font-weight: 500; line-height: 1.3; margin-bottom: 8px; }
+  .post-card p { font-size: 0.95rem; color: var(--muted); }
+  .read-more {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+
+  .coming-soon {
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 26px 28px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 40px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="site-name" href="index.html" style="color:var(--ink)">vijay-yerra ~ %</a>
+    <nav>
+      <a href="index.html">home</a>
+      <a href="blog.html" class="active">blog</a>
+      <a href="index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head wrap">
+    <div class="eyebrow">ls ./blog</div>
+    <h1>Writing</h1>
+    <p>Notes on AI, software, and adapting to both — written from inside the change, not above it.</p>
+  </div>
+
+  <div class="posts wrap">
+
+    <!-- To add a new post: copy this block, update the link, meta, title, and excerpt -->
+    <a class="post-card" href="ai-adaptability.html">
+      <div class="post-meta"><span class="cat">mindset</span> · July 2026 · 6 min read</div>
+      <h2>9 Fears I Wrote in My Notebook About AI (and How I Answered Them)</h2>
+      <p>One night I wrote every AI fear I had into my notebook, drew a line down the middle, and forced myself to answer each one — separating what's well-supported from what's just my bet.</p>
+      <span class="read-more">read post →</span>
+    </a>
+
+    <div class="coming-soon">more posts coming soon — the notebook is filling up</div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Vijay Yerra · <a href="index.html">home</a></div>
+</footer>
+
+</body>
+</html>

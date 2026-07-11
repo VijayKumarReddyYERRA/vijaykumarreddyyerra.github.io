@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9 Fears I Wrote in My Notebook About AI — Vijay Yerra</title>
+<meta name="description" content="Nine fears developers have about AI, answered as honestly as I can — separating what's well-supported from what's just my bet.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F7F9;
+    --ink: #14161F;
+    --muted: #5B6170;
+    --accent: #3347E0;
+    --line: #DDE0E8;
+    --card: #FFFFFF;
+    --fact: #1A7F4E;
+    --bet: #B4690E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Site header ---------- */
+  header { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; max-width: 720px; }
+  .site-name { font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+  header nav { display: flex; gap: 20px; }
+  header nav a { font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; color: var(--muted); }
+  header nav a:hover { color: var(--accent); text-decoration: none; }
+  header nav a.active { color: var(--accent); }
+
+  /* ---------- Post header ---------- */
+  .post-header { padding: 64px 0 40px; border-bottom: 1px solid var(--line); margin-bottom: 44px; }
+  .breadcrumb {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .post-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 3px 12px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.7rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .post-subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 24px; }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .meta-text { font-size: 0.88rem; }
+  .meta-text .author { font-weight: 500; }
+  .meta-text .details { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+
+  /* ---------- Article body ---------- */
+  article p { margin-bottom: 20px; font-size: 1.02rem; }
+  article .lead { font-size: 1.12rem; }
+
+  .legend {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 28px 0 36px;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .dot.fact { background: var(--fact); }
+  .dot.bet { background: var(--bet); }
+
+  .fear-block {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 24px 26px;
+    margin: 0 0 24px;
+  }
+  .fear-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .fear-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .tag.fact { color: var(--fact); border: 1px solid var(--fact); }
+  .tag.bet { color: var(--bet); border: 1px solid var(--bet); }
+  .fear-block h2 { font-size: 1.15rem; font-weight: 500; margin-bottom: 12px; }
+  .fear-block p { font-size: 0.98rem; margin-bottom: 10px; }
+  .fear-block p:last-child { margin-bottom: 0; }
+  .caveat {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border-radius: 6px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .caveat strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- Post footer ---------- */
+  .post-footer {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .author-box {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 28px;
+  }
+  .author-box .avatar { flex-shrink: 0; width: 48px; height: 48px; font-size: 1rem; }
+  .author-box h3 { font-size: 1rem; font-weight: 500; margin-bottom: 4px; }
+  .author-box p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .post-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    padding-bottom: 64px;
+  }
+
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 40px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  footer.site .wrap { max-width: 720px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="site-name" href="index.html" style="color:var(--ink)">vijay-yerra ~ %</a>
+    <nav>
+      <a href="index.html">home</a>
+      <a href="blog.html" class="active">blog</a>
+      <a href="index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="post-header">
+    <div class="breadcrumb"><a href="blog.html">blog</a> / mindset</div>
+    <span class="post-tag">Mindset</span>
+    <h1>9 Fears I Wrote in My Notebook About AI (and How I Answered Them)</h1>
+    <p class="post-subtitle">AI adaptability with ease and interest — as honestly as I can manage.</p>
+    <div class="post-meta">
+      <div class="avatar">VY</div>
+      <div class="meta-text">
+        <div class="author">Vijay Yerra</div>
+        <div class="details">July 2026 · 6 min read</div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <p class="lead">This is for working developers — people with a manager, a team, and a job that suddenly feels less certain than it did two years ago. One night I wrote every AI fear I had into my notebook, drew a line down the middle, and forced myself to write an answer next to each one.</p>
+
+    <p>I'm not writing this from the other side of the fear. I'm writing it from inside it. Some of my answers are well-supported by how work has always changed. Others are bets — things I'm choosing to believe because they give me a way to act. I've labeled which is which, because your future deserves honesty, not motivation.</p>
+
+    <div class="legend">
+      <span><span class="dot fact"></span>Well-supported — solid reasoning or track record</span>
+      <span><span class="dot bet"></span>My bet — I'm living by it, but nobody can guarantee it</span>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 01</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"AI will replace me."</h2>
+      <p>The reframe that helped me: AI reduces my dependency on other developers. Things I used to wait on — an explanation, a snippet, a first-pass review — I can now get instantly. That genuinely makes me faster.</p>
+      <div class="caveat"><strong>But be careful:</strong> AI is confidently wrong in ways a senior colleague never is. If you use it to replace human review entirely, nobody catches your blind spots. Reduce dependency — don't eliminate the humans.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 02</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"Anyone can replace me now."</h2>
+      <p>Here's the uncomfortable truth: even without AI, if you stop growing, you get replaced. It happened before AI and it will happen after. AI didn't create that rule — it just sped up the clock.</p>
+      <div class="caveat"><strong>The honest part:</strong> past technology transitions took decades, and plenty of good people got hurt along the way even when the economy adapted. "Adapt and you'll be fine" is not a promise anyone can make you. Adapting improves your odds. That's all — and it's still worth doing.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 03</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"There's too much to learn at once."</h2>
+      <p>You don't need to learn everything. Look at how you learned what you already know — syntax, idioms, patterns, one at a time, driven by what you needed that week. The same approach works here.</p>
+      <div class="caveat"><strong>One difference from syntax:</strong> this field moves fast, and some of what you learn will be obsolete in a year. Learn the durable skills — how to break down problems, how to verify output — more than any specific tool.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 04</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"It generates random code."</h2>
+      <p>Mostly, random output comes from a random prompt. Be specific, review everything, keep notes on what works. You are in control of more than it feels like.</p>
+      <div class="caveat"><strong>The part nobody says:</strong> reviewing AI code well requires skill you only build by writing code yourself. If you're early in your career, "just review it" is harder than it sounds — subtle bugs will slip past you. Keep writing code by hand regularly. It's not wasted time; it's what keeps your review ability alive.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 05</span>
+        <span class="tag bet">My bet</span>
+      </div>
+      <h2>"If I automate my work, I'll lose my job."</h2>
+      <p>My bet is the opposite: the skill of building automations is what makes you valuable — and that skill lives in you, not in any one script. The automation stays at the company; the ability to build the next one travels with you.</p>
+      <div class="caveat"><strong>Two real warnings:</strong> first, code and notes you produce at work usually belong to your employer legally — know your contract before you assume anything is "yours." Second, never paste company code or data into AI tools without checking your company's policy. People have been fired for this. Your prompting skill is yours; the company's data is not.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 06</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"Taking notes will slow me down."</h2>
+      <p>Yes — at first. That's just true, and I won't pretend otherwise. But documented, repeatable tasks are exactly where AI helps most, so the notes pay back on every repeat.</p>
+      <div class="caveat"><strong>Scope honestly:</strong> the productivity gain is big for repetitive, well-defined work. For novel, ambiguous problems, the gains are much smaller. If most of your job is the second kind, expect help at the edges, not a transformation.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 07</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"It doesn't handle errors and edge cases properly."</h2>
+      <p>Correct — it often doesn't. So review at each stage, plan for failure scenarios yourself, and when AI produces scrap, say so out loud: "I got a bad output here, I'm fixing it manually." Being transparent about the tool's limits is what makes people trust your use of it.</p>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 08</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"What about debugging?"</h2>
+      <p>Debug manually, or at least stay in the loop — because understanding the root cause is the skill, and it's one AI can tempt you to skip. Then publish your findings so the knowledge reaches your team.</p>
+      <p>Notice this isn't a contradiction with Fear 05: your personal prompting workflow is your toolkit; debugging findings and root causes are team knowledge. Keep the first, share the second.</p>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 09</span>
+        <span class="tag bet">My bet</span>
+      </div>
+      <h2>"Am I building my own replica by automating everything?"</h2>
+      <p>Eventually, in part — yes. My bet is that by then I'll have moved to work the replica can't do, because the market has historically kept creating new work when old work got automated.</p>
+      <div class="caveat"><strong>Full honesty:</strong> "historically" is doing a lot of work in that sentence. Nobody knows if this transition behaves like the previous ones. Some people will land in better roles; others will face painful transitions, retraining, or pay cuts. I'm choosing this bet because the alternative — refusing to automate and hoping the wave misses me — has worse odds, not because the bet is safe.</div>
+    </div>
+
+    <div class="fear-block">
+      <div class="fear-meta">
+        <span class="fear-label">Fear 10 — the one I didn't write down</span>
+        <span class="tag fact">Well-supported</span>
+      </div>
+      <h2>"Will I forget how to do this myself?"</h2>
+      <p>This fear wasn't in my notebook, but it should have been: skill atrophy. Lean on AI for everything and the fundamentals quietly erode — the exact fundamentals you need to review its output (Fear 04) and debug its failures (Fear 08).</p>
+      <p>My rule: regularly do some of the work the hard way, on purpose. Not because it's efficient — because it keeps me qualified to check the machine.</p>
+    </div>
+
+    <p>I can't promise you that adapting to AI will save your job. Anyone who promises that is selling something. What I can say is this: the habits above — controlling your prompts, reviewing output, understanding root causes, keeping your fundamentals alive, being honest when the tool fails — improve your odds in every version of the future, including the one where AI turns out to be overhyped.</p>
+
+    <p>That's why I'm doing them. Not with fear. With ease and interest.</p>
+  </article>
+
+  <div class="post-footer">
+    <div class="author-box">
+      <div class="avatar">VY</div>
+      <div>
+        <h3>Vijay Yerra</h3>
+        <p>Developer writing about AI and software from inside the change. These posts start as handwritten notebook pages.</p>
+      </div>
+    </div>
+    <div class="post-nav">
+      <a href="blog.html">← all posts</a>
+      <a href="index.html#contact">reply by email →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">© 2026 Vijay Yerra · <a href="index.html">home</a> · <a href="blog.html">blog</a></div>
+</footer>
+
+</body>
+</html>
