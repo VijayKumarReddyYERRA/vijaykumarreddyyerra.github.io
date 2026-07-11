@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vijay Yerra — AI Builder</title>
+<meta name="description" content="Vijay Yerra — building with AI. Projects, skills, and contact.">
+
+<!-- ============================================================
+     HOW TO EDIT THIS FILE:
+     Search for "EDIT" comments below — replace the text with
+     your own details. Everything else can stay as it is.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F7F9;          /* porcelain */
+    --ink: #14161F;         /* near-black ink */
+    --muted: #5B6170;       /* slate for secondary text */
+    --accent: #3347E0;      /* cobalt */
+    --line: #DDE0E8;        /* hairline borders */
+    --card: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .site-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  nav a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 96px 0 80px; }
+  .prompt-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .cursor {
+    display: inline-block;
+    width: 9px; height: 1.05em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 8vw, 4.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  h1 .accent { color: var(--accent); }
+
+  .hero p {
+    margin-top: 22px;
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 560px;
+  }
+
+  .hero-actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.88rem;
+    padding: 12px 22px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn:hover { background: var(--ink); color: var(--bg); text-decoration: none; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: #2536C4; border-color: #2536C4; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .section-label::before { content: "> "; color: var(--muted); }
+
+  .about-text { font-size: 1.05rem; max-width: 620px; color: var(--ink); }
+  .about-text + .about-text { margin-top: 14px; }
+
+  /* ---------- Skills ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+  }
+
+  /* ---------- Projects ---------- */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .projects { grid-template-columns: 1fr; } }
+  .project {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .project:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .project h3 { font-size: 1.1rem; font-weight: 500; margin-bottom: 8px; }
+  .project p { font-size: 0.94rem; color: var(--muted); margin-bottom: 14px; }
+  .project a { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; }
+
+  /* ---------- Contact ---------- */
+  .contact-links { display: flex; flex-direction: column; gap: 10px; }
+  .contact-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 40px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="site-name">vijay-yerra ~ %</span>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <div class="prompt-label">&gt; whoami<span class="cursor"></span></div>
+    <h1>Vijay Yerra<span class="accent">.</span></h1>
+    <!-- EDIT: your one-line intro below -->
+    <p>I build things with AI — turning ideas into working tools, one project at a time.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#projects">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-label">about</div>
+      <!-- EDIT: write 2-3 sentences about yourself -->
+      <p class="about-text">Hi, I'm Vijay. I'm passionate about artificial intelligence and how it can solve real problems. I enjoy learning new tools, experimenting with AI models, and building projects that put those ideas to work.</p>
+      <p class="about-text">This site is where I share what I'm building and learning. It's a work in progress — just like me.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-label">skills</div>
+      <!-- EDIT: replace these with your actual skills -->
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">Machine Learning</span>
+        <span class="chip">Prompt Engineering</span>
+        <span class="chip">LLM APIs</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">HTML / CSS / JS</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-label">projects</div>
+      <div class="projects">
+        <!-- EDIT: duplicate this block for each project -->
+        <div class="project">
+          <h3>Project One</h3>
+          <p>A short description of what this project does and why you built it. Keep it to two sentences.</p>
+          <a href="#">view project →</a>
+        </div>
+        <div class="project">
+          <h3>Project Two</h3>
+          <p>Another project description goes here. Mention the tools or AI models you used.</p>
+          <a href="#">view project →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-label">contact</div>
+      <!-- EDIT: replace with your real email and profile links -->
+      <div class="contact-links">
+        <a href="mailto:your-email@example.com">your-email@example.com</a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">linkedin.com/in/yourusername</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Vijay Yerra · built by hand, powered by curiosity</div>
+</footer>
+
+</body>
+</html>
